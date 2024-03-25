@@ -33,19 +33,21 @@ export const BookList=()=>{
                             <table style={{"marginBottom":"50px","width":"900px","marginLeft":"11%"}}>
                                 <tbody>
                                 <tr>
-                                    <td width={"20%"} rowSpan={"3"} style={{"paddingLeft": "3%","borderRightStyle":"hidden"}}>
-                                        <Link to={"/book/detail/"+book.no}>
-                                            <img src={book.poster} style={{"width": "125px","height": "186px"}}/>
+                                    <td width={"20%"} rowSpan={"4"}
+                                        style={{"paddingLeft": "3%", "borderRightStyle": "hidden"}}>
+                                        <Link to={"/book/detail/" + book.no}>
+                                            <img src={book.poster} style={{"width": "125px", "height": "186px"}}/>
                                         </Link>
                                     </td>
-                                    <td style={{"height":"60px"}}>
+                                    <td style={{"height": "60px"}}>
                                         <Link to={"/book/detail/" + book.no}>
-                                            <h4 style={{"color":"black","fontWeight":"bolder"}}>{book.name}</h4>
+                                            <strong style={{"fontWeight": "bold", "fontSize": "x-large","color":"black"}}>{book.name}</strong>
                                         </Link>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{"color":"black"}}><strong style={{"fontWeight": "bold"}}>작가&nbsp;&nbsp;&nbsp;</strong><span>{book.author}</span>
+                                    <td style={{"color": "black"}}><strong
+                                        style={{"fontWeight": "bold"}}>작가&nbsp;&nbsp;&nbsp;</strong><span>{book.author}</span>
                                     </td>
                                 </tr>
                                 <tr>

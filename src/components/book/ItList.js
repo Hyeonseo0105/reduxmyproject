@@ -35,7 +35,9 @@ export const ItList=()=>{
                                 <td width={"20%"} rowSpan={"3"} style={{"paddingLeft": "3%","borderRightStyle":"hidden"}}>
                                     <img src={it.poster} style={{"width": "125px","height": "186px"}}/>
                                 </td>
-                                <td style={{"color":"black"}}><strong style={{"fontWeight": "bold"}}>{it.name}</strong><span></span></td>
+                                <Link to={"/book/detail/" + it.no}>
+                                    <td style={{"color":"black"}}><strong style={{"fontWeight": "bold","fontSize":"x-large"}}>{it.name}</strong><span></span></td>
+                                </Link>
                             </tr>
                             <tr>
                                 <td style={{"color":"black"}}><strong style={{"fontWeight": "bold"}}>작가&nbsp;&nbsp;&nbsp;</strong><span>{it.author}</span>

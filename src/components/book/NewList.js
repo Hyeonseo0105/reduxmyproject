@@ -38,7 +38,11 @@ export const NewList=()=>{
                                 </td>
                                 <td style={{"height":"60px"}}>
                                     <Link to={"/book/detail/" + book.no}>
-                                        <h4 style={{"color":"black","fontWeight":"bolder"}}>{book.name}</h4>
+                                        <strong style={{
+                                            "fontWeight": "bold",
+                                            "fontSize": "x-large",
+                                            "color": "black"
+                                        }}>{book.name}</strong>
                                     </Link>
                                 </td>
                             </tr>

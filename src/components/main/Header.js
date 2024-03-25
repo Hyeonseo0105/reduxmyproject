@@ -31,6 +31,7 @@ function Header(){
                         </li>
                         <li><Link to="/book/find">검색</Link></li>
                         <li><Link to="/board/list">커뮤니티</Link></li>
+                        <li><Link to="/cart/list">장바구니</Link></li>
                     </ul>
                 </nav>
             </header>

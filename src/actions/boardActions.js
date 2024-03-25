@@ -1,5 +1,5 @@
 import {FETCH_BOARD_LIST, FETCH_BOARD_INSERT, FETCH_BOARD_DETAIL,
-        FETCH_BOARD_UPDATE, FETCH_BOARD_UPDATE_DATA, FETCH_BOARD_DELETE,} from "./types";
+        FETCH_BOARD_UPDATE, FETCH_BOARD_UPDATE_DATA, FETCH_BOARD_DELETE} from "./types";
 import axios from "axios";
 
 export const fetchboardList=(page)=>dispatch=>{

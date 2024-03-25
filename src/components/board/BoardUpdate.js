@@ -22,6 +22,7 @@ function BoardUpdate(){
     },[])
 
     const update_date=useSelector((state)=>state.boards.update_data)
+
     useEffect(()=>{
         setName(update_date.name)
         setContent(update_date.content)

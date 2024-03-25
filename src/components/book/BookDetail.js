@@ -1,16 +1,31 @@
-import {Fragment,useEffect} from "react";
+import {Fragment, useEffect, useRef, useState} from "react";
 import {useSelector,useDispatch} from "react-redux";
-import {fetchBookDetail} from "../../actions/bookActions";
-import {useNavigate,useParams} from "react-router-dom";
+import {fetchBookcartOk, fetchBookDetail} from "../../actions/bookActions";
+import {Link, useNavigate, useParams} from "react-router-dom";
 export const BookDetail=()=> {
     const {no} = useParams()
     // getParameter
     const nav = useNavigate()
     const dispatch = useDispatch()
+    const [cartnum,setCartnum]=useState('')
 
     useEffect(() => {
         dispatch(fetchBookDetail(no))
     }, [])
+
+    const cartok=()=>{
+        const params={
+            cart:cartnum,
+            no:no
+        }
+        dispatch(fetchBookcartOk(params))
+    }
+    const cart_data=useSelector((state)=>state.books.cart_num)
+    console.log(cart_data)
+
+    useEffect(() => {
+        setCartnum(cart_data.cart)
+    }, []);
 
     const bookDetail = useSelector((state) => state.books.book_detail)
     console.log(bookDetail)
@@ -48,7 +63,11 @@ export const BookDetail=()=> {
                             <td><a style={{
                                 "fontWeight": "bold",
                                 "color": "black"
-                            }}>판매가</a>&nbsp;&nbsp;&nbsp;&nbsp;{bookDetail.saleprice}</td>
+                                }}>판매가</a>&nbsp;&nbsp;&nbsp;&nbsp;{bookDetail.saleprice}
+                            </td>
+                            <td>
+                                <Link to={"/cart/list"} onClick={cartok} className={"btn"} style={{"backgroundColor":"rgb(245,232,221)","color":"black"}}>구매</Link>
+                            </td>
                         </tr>
 
                         </tbody>

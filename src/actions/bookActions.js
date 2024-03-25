@@ -1,6 +1,6 @@
 import {FETCH_BOOK_LIST,FETCH_NOVEL_LIST,FETCH_IT_LIST,FETCH_NEW_LIST,
     FETCH_BOOK_DETAIL,FETCH_BOOK_FIND,
-    FETCH_BHOME_LIST} from "./types";
+    FETCH_BHOME_LIST,FETCH_BOOK_CART_DATA,FETCH_CART_LIST} from "./types";
 import axios from "axios";
 
 export const fetchBhomeList=()=>dispatch=>{
@@ -93,6 +93,31 @@ export const fetchBookFind=(page,name)=>dispatch=>{
     }).then(response=>{
         const action={
             type:FETCH_BOOK_FIND,
+            payload:response.data
+        }
+        dispatch(action)
+    })
+}
+
+export const fetchBookcartOk=(cartData)=>dispatch=>{
+    axios.post('http://localhost/book/cart_ok_redux',null,{
+        params:cartData
+    }).then(response=>{
+        const action={
+            type:FETCH_BOOK_CART_DATA,
+            payload:response.data
+        }
+        dispatch(action)
+    })
+}
+export const fetchCartList=(page)=>dispatch=>{
+    axios.get('http://localhost/cart/list_redux',{
+        params:{
+            page:page
+        }
+    }).then(response=>{
+        const action={
+            type:FETCH_CART_LIST,
             payload:response.data
         }
         dispatch(action)
